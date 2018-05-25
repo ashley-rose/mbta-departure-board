@@ -1,5 +1,5 @@
 import React from 'react'
-import Moment from 'react-moment'
+import DateTime from './date-time.jsx'
 import DepartureBoard from './departure-board.jsx'
 import OriginSelector from './origin-selector.jsx'
 
@@ -16,7 +16,14 @@ export default class Application extends React.Component {
     return <div>
       <div>
         <OriginSelector onChange={(station) => this.setState({station})} />
-        <Moment format='dddd, MMM, D h:mm A' date={this.state.lastUpdated} />
+        <DateTime dateTime={this.state.lastUpdated} format={{
+          weekday: 'long',
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric'
+        }} />
       </div>
       <DepartureBoard
         station={this.state.station}

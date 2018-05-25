@@ -1,5 +1,5 @@
 import React from 'react'
-import Moment from 'react-moment'
+import DateTime from './date-time.jsx'
 import Trip from '../common/trip'
 
 const defaultInteval = 20000 // 20 seconds
@@ -75,14 +75,22 @@ export default class DepartureBoard extends React.Component {
           {this.state.trips.map(trip => {
             return (
               <tr key={trip.id}>
-                <td><Moment format='h:mm' date={trip.scheduledDeparture} /></td>
+                <td>
+                  <DateTime
+                    format={{hour: 'numeric', minute: 'numeric'}}
+                    dateTime={trip.scheduledDeparture} />
+                </td>
                 <td>{trip.destination.name}</td>
                 <td>{trip.number}</td>
                 <td>{trip.trackNumber || 'TBD'}</td>
                 <td>
                   {trip.departureStatus}
                   {trip.updatedDeparture && <span>
-                    (Now: <Moment format='h:mm' date={trip.updatedDeparture} />)
+                    (Now:
+                    <DateTime
+                      format={{hour: 'numeric', minute: 'numeric'}}
+                      dateTime={trip.updatedDeparture} />
+                    )
                   </span>}
                 </td>
               </tr>

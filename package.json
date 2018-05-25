@@ -26,11 +26,10 @@
     "csv-parse": "^2.4.0",
     "document-ready": "^2.0.1",
     "express": "^4.16.3",
-    "moment": "^2.22.1",
+    "intl": "^1.2.5",
     "morgan": "^1.9.0",
     "node-fetch": "^2.1.2",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-moment": "^0.7.0"
+    "react-dom": "^16.3.2"
   }
 }
